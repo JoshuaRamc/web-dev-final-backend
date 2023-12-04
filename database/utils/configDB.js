@@ -1,4 +1,4 @@
-const dbName = 'booklog';
+const dbName = 'booklibrary';
 const dbUser = 'postgres';
 const dbPwd = '123456';
 

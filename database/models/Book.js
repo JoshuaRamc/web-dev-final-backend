@@ -9,22 +9,20 @@ const Book = db.define("book", {
   },
   title: {
     type: Sequelize.STRING,
-    allowNull: false,
   },
-  author: {
+  authors: {
     type: Sequelize.STRING,
-    allowNull: false,
+  },
+  publication_date: {
+    type: Sequelize.STRING,
   },
   description: {
-    type: Sequelize.STRING,
-  },
-  genre: {
     type: Sequelize.STRING,
   },
   page_count: {
     type: Sequelize.INTEGER,
   },
-  publication_date: {
+  genre: {
     type: Sequelize.STRING,
   },
 });
