@@ -4,6 +4,9 @@ const db = require("../database/db");
 const Book = require("../database/models/Book");
 const bookService = require("../service/book");
 
+
+//API KEY: 'AIzaSyAGX87cdFiNL82Y2_Ez1zuDXnrm-y53Cto'
+
 // retrieves book list
 router.get("/findall", async (req, res) => {
   Book.findAll()
@@ -20,18 +23,18 @@ router.post("/createbook", function (req, res, next) {
     .catch((err) => next(err));
 });
 
-// get book by id
-router.get("/:id", async (req, res) => {
-  Book.findByPk(req.params.id)
+// get book by isbn
+router.get("/:isbn", async (req, res) => {
+  Book.findByPk(req.params.isbn)
     .then((query_book) => res.status(200).json(query_book))
     .catch((err) => console.log(err));
 });
 
-// delete book by id
-router.delete("/:id", function (req, res, next) {
+// delete book by isbn
+router.delete("/:isbn", function (req, res, next) {
   Book.destroy({
     where: {
-      id: req.params.id,
+      isbn: req.params.isbn,
     },
   })
     .then(() => res.status(200).json("Deleted book."))
@@ -39,9 +42,9 @@ router.delete("/:id", function (req, res, next) {
 });
 
 // update
-router.put("/:id", async (req, res) => {
-  await Book.update(req.body, { where: { id: req.params.id } });
-  let book = await Book.findByPk(req.params.id);
+router.put("/:isbn", async (req, res) => {
+  await Book.update(req.body, { where: { isbn: req.params.isbn } });
+  let book = await Book.findByPk(req.params.isbn);
   res.status(200).json(book);
 });
 module.exports = router;

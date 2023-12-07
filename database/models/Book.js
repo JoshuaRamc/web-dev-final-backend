@@ -6,6 +6,7 @@ const Book = db.define("book", {
   isbn: {
     type: Sequelize.STRING,
     allowNull: false,
+    primaryKey: true,
   },
   title: {
     type: Sequelize.STRING,
