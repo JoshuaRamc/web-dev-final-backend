@@ -1,5 +1,6 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
 const Sequelize = require("sequelize");
@@ -14,10 +15,11 @@ db.authenticate()
 const app = express();
 
 app.get("/", (req, res) => res.send("INDEX"));
-
+app.use(cors({ origin: "*" }));
+app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 //Book routes
-app.use('/books', require('./routes/books'))
-
+app.use("/", require("./routes/books"));
 
 const PORT = process.env.PORT || 5000;
 
