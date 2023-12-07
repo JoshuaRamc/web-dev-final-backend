@@ -4,9 +4,6 @@ const db = require("../database/db");
 const Book = require("../database/models/Book");
 const bookService = require("../service/book");
 
-
-//API KEY: 'AIzaSyAGX87cdFiNL82Y2_Ez1zuDXnrm-y53Cto'
-
 // retrieves book list
 router.get("/findall", async (req, res) => {
   Book.findAll()
