@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const db = require("../database/db");
 const Book = require("../database/models/Book");
-const bookService = require("../service/book");
 
 // retrieves book list
 router.get("/findall", async (req, res) => {
