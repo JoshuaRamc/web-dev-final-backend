@@ -18,8 +18,10 @@ app.get("/", (req, res) => res.send("INDEX"));
 app.use(cors({ origin: "*" }));
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
 //Book routes
 app.use("/", require("./routes/books"));
+app.use("/thread", require("./routes/threads"));
 
 const PORT = process.env.PORT || 5000;
 
